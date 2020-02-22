@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">InstegramApp</string>
+    <string name="logo">Logo</string>
+    <string name="mohamed_ahmed">mohamed ahmed</string>
+    <string name="username">\@mhmda7med</string>
+    <string name="bio">BottomNavigationView with fragments Home, Search, Add, Trends and Profile.BottomNavigationView with fragments Home, Search, Add, Trends and Profile.</string>
+    <string name="Posts">posts</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="edit_profile">Edit Profile</string>
+</resources>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_End"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_1"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_End"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/ic_instagramm" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/photo"
+        app:layout_constraintEnd_toEndOf="@id/guideline_End"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_1"
+
+        />
+
+    <Button
+        android:id="@+id/profile_add"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/ic_plus"
+        app:layout_constraintEnd_toEndOf="@id/profile_image"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image" />
+
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:textStyle="bold"
+        android:text="@string/mohamed_ahmed"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_End"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/profile_image">
+
+    </TextView>
+    <TextView
+        android:id="@+id/text_name_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/username"
+        android:textColor="#777777"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_End"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/text_name">
+
+    </TextView>
+    <TextView
+        android:id="@+id/text_bio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/bio"
+        android:textColor="#777777"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_End"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/text_name_email"/>
+
+    <Button
+        android:id="@+id/Edit_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/edit_profile"
+        android:background="@drawable/edit_button"
+        app:layout_constraintTop_toBottomOf="@id/text_bio"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_End"
+
+        />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_End"
+        app:layout_constraintTop_toBottomOf="@id/Edit_profile">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Posts" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/follower" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/following" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rowCount="2"
+        android:columnCount="2"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_End"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+
+
+
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:scaleType="center"
+            android:src="@drawable/img"
+            android:layout_row="0"
+            android:layout_column="0"
+            />
+
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:scaleType="center"
+            android:src="@drawable/img"
+            android:layout_row="0"
+            android:layout_column="1"/>
+
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:scaleType="center"
+            android:src="@drawable/img"
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:scaleType="center"
+            android:src="@drawable/img"
+            android:layout_row="1"
+            android:layout_column="1"/>
+
+
+    </GridLayout>
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
