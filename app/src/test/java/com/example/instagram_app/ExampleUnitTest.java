@@ -1,4 +1,4 @@
-package com.example.instegramapplication;
+package com.example.instagram_app;
 
 import org.junit.Test;
 

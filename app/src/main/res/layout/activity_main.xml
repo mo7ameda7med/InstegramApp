@@ -7,6 +7,10 @@
     android:background="#FFF"
     tools:context=".MainActivity">
 
+    <include
+        android:id="@+id/insta_toolbar"
+        layout="@layout/app_bar"/>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
         android:layout_width="wrap_content"
@@ -20,22 +24,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.95" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_1"
-        android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        app:layout_constraintEnd_toEndOf="@id/guideline_End"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/logo"
-            android:src="@drawable/ic_instagramm" />
-    </androidx.appcompat.widget.Toolbar>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
@@ -45,7 +34,7 @@
         android:src="@drawable/photo"
         app:layout_constraintEnd_toEndOf="@id/guideline_End"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_1"
+        app:layout_constraintTop_toBottomOf="@id/insta_toolbar"
 
         />
 
@@ -109,13 +98,49 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_End"
 
         />
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/guideline_End"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/Edit_profile"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_193"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_500"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:text="@string/_200"
+            android:gravity="center"
+            />
+    </LinearLayout>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintEnd_toEndOf="@id/guideline_End"
-        app:layout_constraintTop_toBottomOf="@id/Edit_profile">
+        app:layout_constraintTop_toBottomOf="@id/layout">
+
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -132,63 +157,5 @@
             android:layout_height="wrap_content"
             android:text="@string/following" />
     </com.google.android.material.tabs.TabLayout>
-
-    <GridLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:rowCount="2"
-        android:columnCount="2"
-        app:layout_constraintTop_toBottomOf="@id/tab_layout"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintEnd_toEndOf="@id/guideline_End"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
-
-
-
-
-        <ImageView
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:scaleType="center"
-            android:src="@drawable/img"
-            android:layout_row="0"
-            android:layout_column="0"
-            />
-
-        <ImageView
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:scaleType="center"
-            android:src="@drawable/img"
-            android:layout_row="0"
-            android:layout_column="1"/>
-
-        <ImageView
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:scaleType="center"
-            android:src="@drawable/img"
-            android:layout_row="1"
-            android:layout_column="0"/>
-
-        <ImageView
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:scaleType="center"
-            android:src="@drawable/img"
-            android:layout_row="1"
-            android:layout_column="1"/>
-
-
-    </GridLayout>
-
-
-
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

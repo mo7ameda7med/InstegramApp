@@ -1,4 +1,4 @@
-package com.example.instegramapplication;
+package com.example.instagram_app;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -13,12 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import android.widget.Toolbar;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -26,48 +22,41 @@ import com.karumi.dexter.listener.DexterError;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.toolbar_1)
-    androidx.appcompat.widget.Toolbar toolbar1;
-    @BindView(R.id.profile_image)
-    CircleImageView profileImage;
-    @BindView(R.id.profile_add)
-    Button profileAdd;
+    Button button;
+    CircleImageView imageView;
     public static final String IMAGE_DIRECTORY = "/demonuts";
     int GALLERY = 1, CAMERA = 2;
 
-    @Override
-    public void setActionBar(@Nullable Toolbar toolbar) {
-        super.setActionBar(toolbar);
 
-        setActionBar(toolbar);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         requestMultiplePermissions();
+        initUI();
 
-        profileAdd.setOnClickListener(new View.OnClickListener() {
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showPictureDialog();
             }
         });
+    }
+
+    private void initUI() {
+         button=findViewById(R.id.profile_add);
+         imageView=findViewById(R.id.profile_image);
     }
 
 
@@ -144,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
                     String path = saveImage(bitmap);
                     Toast.makeText(MainActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
-                    profileImage.setImageBitmap(bitmap);
+                    imageView.setImageBitmap(bitmap);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -154,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (requestCode == CAMERA) {
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-            profileImage.setImageBitmap(thumbnail);
+            imageView.setImageBitmap(thumbnail);
             saveImage(thumbnail);
             Toast.makeText(MainActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
         }
